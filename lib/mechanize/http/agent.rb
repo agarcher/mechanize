@@ -183,7 +183,7 @@ class Mechanize::HTTP::Agent
     @scheme_handlers['relative']  = @scheme_handlers['http']
     @scheme_handlers['file']      = @scheme_handlers['http']
 
-    @http = Net::HTTP::Persistent.new connection_name
+    @http = Net::HTTP::Persistent.new(name: connection_name)
     @http.idle_timeout = 5
     @http.keep_alive   = 300
   end
@@ -1264,4 +1264,3 @@ class Mechanize::HTTP::Agent
 end
 
 require 'mechanize/http/auth_store'
-
